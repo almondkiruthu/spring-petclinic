@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: petclinic
-          image: almondkiruthu/spring-petclinic:latest
+          image: almondkiruthu/spring-petclinic-jenkins:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

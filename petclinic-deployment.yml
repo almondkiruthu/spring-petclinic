@@ -5,7 +5,7 @@ metadata:
   labels:
     app: petclinic
 spec:
-  replicas: 2 # Increased for HA (as per your assignment)
+  replicas: 1
   selector:
     matchLabels:
       app: petclinic
@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: petclinic
-          image: almondkiruthu/spring-petclinic:latest # YOUR image
-          imagePullPolicy: Always # Important for CI/CD
+          image: almondkiruthu/spring-petclinic:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
 ---
@@ -26,10 +26,10 @@ kind: Service
 metadata:
   name: petclinic
 spec:
-  type: NodePort # Changed from LoadBalancer
+  type: NodePort
   selector:
     app: petclinic
   ports:
-    - port: 8080 # Changed from 80
+    - port: 8080
       targetPort: 8080
-      nodePort: 30080 # Fixed port for consistent access
+      nodePort: 30080
